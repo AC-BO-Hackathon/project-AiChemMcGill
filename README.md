@@ -1,17 +1,9 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=14516777)
-# Intro to GitHub Classroom
-This example project is written in Python, and tested with [pytest](https://www.python.org/).
+**Authors**: Ben Weiser, Jérôme Genzling, Nicolas Gastellu, and Sylvester Zhang
 
-## The assignment
+We want to optimize a protein to achieve better binding affinity to a certain substrate. This can have applications to biologics such as antibody therapeutics, enzymology, and in the case of this project, biosensors. We aimed to use Bayesian optimization to mutate the residues of a protein to achieve better binding affinity to fentanyl. This can be used for drug testing to detect fentanyl at higher sensitivities. Our methodology, was to use a pre-train a BERT language model trained to predict binding of ligands to a given protein from a sequence publish by Andrew E Blanchard. We give the amino acid sequence of the protein and the smiles string of fentanyl to this model and it outputs score related to binding affinity. We then use Bayesian optimization to query position and amino acid to mutate to and subsequently predict the next best position and amino acid to try next. We want to start with a protein that already has affinity to fentanyl so we took a previously developed protein published by Lisa M. Eubanks. We analyzed the protein and selected the residues with 5 angstroms of the ligand to be selected for possible sites of mutagenesis. Then take a mutation if we find it increased the binding above a certain threshold, and do this until we find 3 mutations chosen by BO which our language model predicts to have high binding affinity. We compared the methodology to a baseline of using random mutations. And we look at using other acquisition functions. We then took our results and analyzed them using pymol’s mutagenesis tool which showed how the suggested changes could lead to new interactions being formed, and how some lead to clashes potentially changing the conformation of the protein. Finally, we investigated the changes of these mutations on the structure using alpha fold.
 
-The test in [`hello_test.py`](hello_test.py) is failing right now because the function in [`hello.py`](hello.py) isn't outputting the correct string. Fix this function and run the `pytest` command in the terminal to make the tests green.
+* Starting protein found [here](https://www.rcsb.org/structure/5TZO). ([Relevant paper](https://doi.org/10.7554/eLife.28909))  
 
-Next, open the "Source Control" button on the left sidebar, write a commit message, and commit and push your changes to GitHub.
+* Binding affinity model we used: https://github.com/ORNL/affinity_pred/tree/master ([Relevant paper](https://doi.org/10.1177/10943420221121804))
 
-![](commit-and-push.gif)
-
-After committing and pushing your changes, the autograder will run your tests and give you a grade. To check your autograded scores, click on the GitHub Actions extension on the left sidebar, click the refresh button at the top-right corner of the sidebar, hover over the latest workflow run, and click the globe icon 🌐. Next, click the "Autograding" job button, click the dropdown for the "Run education/autograding" step, and scroll down to see your grade.
-
-![](github-actions-extension.gif)
-
-▶️ If you get stuck, refer to [the walkthrough video](https://github.com/AC-Classroom/intro-github-classroom/assets/45469701/93760bf7-0d27-49dc-8f66-7d50d428677f).
+Thanks for checking our project out! 
