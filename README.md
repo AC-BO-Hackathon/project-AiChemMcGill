@@ -1,4 +1,4 @@
-**Authors**: Ben Weiser, Jérôme Genzling, Nicolas Gastellu, and Sylvester Zhang
+**Authors**: Ben Weiser, Nicolas Gastellu, Jérôme Genzling, and Sylvester Zhang
 
 
 # Intro
